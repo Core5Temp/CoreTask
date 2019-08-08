@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PageManager : MonoBehaviour
 {
@@ -17,10 +18,12 @@ public class PageManager : MonoBehaviour
    private void Awake()
    {
       _instance = this;
-      
+
+      InitOthers();
+
       for (var i = 0; i < _pagesStorage.Count; i++)
       {
-         var page = _pagesStorage[i];
+         var page = _pagesStorage[i].GetComponent<BasePage>();
          page.Init();
          
          Pages.Add(page.GetType(), page);
@@ -30,6 +33,25 @@ public class PageManager : MonoBehaviour
          
          if (page is IStartPage)
             Open(page);
+      }
+   }
+
+   private void InitOthers()
+   {
+      PoolObjects.Instance.Init();
+   }
+
+   private void Update()
+   {
+      if (Random.value < 0.5)
+      {
+         var playe = PoolObjects.Get<Player>();
+         playe.transform.position = new Vector3(Random.Range(1f,2f),Random.Range(1f,2f),Random.Range(1f,2f));
+      }
+      else
+      {
+         var enemy = PoolObjects.Get<Enemy>();
+         enemy.transform.position = new Vector3(Random.Range(1f,2f),Random.Range(1f,2f),Random.Range(1f,2f));
       }
    }
 
