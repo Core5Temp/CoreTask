@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25daf554aa2cd9e4daa1e04dbea964f0, type: 3}
+  m_Name: Settings
+  m_EditorClassIdentifier: 
+  _playerSpeed: 10
+  _countEnemyFromSpawn: 2
+  _spawnDelay: 2
+  _enemySpeedUp: 1
+  _speedUpDelay: 10
+  _defEnemySpeed: 2
+  _boosterSpawnDelay: 5
+  _boosterDurations: 10
+  _delayToUpScore: 5
+  _upScoreCount: 20

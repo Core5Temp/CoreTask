@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fdf09c1375b577419a35dd2306598b4, type: 3}
   m_Name: PoolObjectsStorage
   m_EditorClassIdentifier: 
+  ObjectsInPool:
+  - {fileID: 2964425682129973153, guid: 6ac2295cb4a9bbe4d8d6e5a598d44686, type: 3}
+  - {fileID: -8156775521897128192, guid: f6eca68abb37f964985b918a5374d75c, type: 3}
+  - {fileID: 8941760392657740448, guid: 649aad35eaecb434186782294006e30c, type: 3}
+  - {fileID: 6368502836774373653, guid: 167e628751902e949b601f4754031410, type: 3}
+  - {fileID: 93763434696157676, guid: 645a9838def32784a8f1d8f77d5cf8b9, type: 3}

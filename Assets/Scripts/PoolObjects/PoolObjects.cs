@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PoolObjects : MonoBehaviour
@@ -30,7 +31,7 @@ public class PoolObjects : MonoBehaviour
         }
     }
 
-    public  void Init()
+    public void Init()
     {
         _objectsInPool = PoolObjectsStorage.Instance.ObjectsInPool;
 
@@ -55,7 +56,7 @@ public class PoolObjects : MonoBehaviour
 
         var returnObject = Pool[type].Dequeue() as T;
         returnObject.OnGetInPool();
-            
+        
         return returnObject as T;
     }
 
@@ -71,9 +72,9 @@ public class PoolObjects : MonoBehaviour
 
         var prefab = DefaultPrefabsInPool[type];
         var instantiate = Instantiate(prefab, Vector3.zero, Quaternion.identity, Instance.transform);
-        var pO = instantiate.GetComponent<IPoolable>();
+        var pO = instantiate.GetComponent<IPoolable>() as T;
         
-        pO.OnReturnToPool();
+        pO.OnGetInPool();
         return pO as T;
     }
 
@@ -97,7 +98,7 @@ public class PoolObjects : MonoBehaviour
             queue.Enqueue(poolableObject);
             Pool.Add(type, queue);
         }
-        
+
         poolableObject.OnReturnToPool();
     }
 }

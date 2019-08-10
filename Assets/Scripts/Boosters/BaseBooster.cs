@@ -1,25 +1,23 @@
 ﻿
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IPoolable
+public abstract class BaseBooster : MonoBehaviour, IPoolable
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
-
-    public float Speed { get; set; }
-
+    
     public Transform Transform { get; private set; }
 
-    private void Awake()
+    protected void Awake()
     {
         Transform = transform;
     }
 
-    public void OnReturnToPool()
+    public virtual void OnReturnToPool()
     {
         gameObject.SetActive(false);
     }
 
-    public void OnGetInPool()
+    public virtual void OnGetInPool()
     {
         gameObject.SetActive(true);
     }
